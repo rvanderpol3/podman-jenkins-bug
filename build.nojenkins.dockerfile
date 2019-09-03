@@ -56,7 +56,9 @@ COPY Dockerfile .
 COPY build-inside-container.sh .
 RUN chmod +x build-inside-container.sh
 
-# Set to a random high number- jenkins will set this later
+CMD [ "bash", "-c", "./build-inside-container.sh" ]
+
+# Set to a random high number
 USER 130456
 
 # Store the tag/version for this container for debugging

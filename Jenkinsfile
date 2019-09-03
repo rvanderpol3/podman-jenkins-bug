@@ -1,19 +1,24 @@
-sh "whoami"
-sh "id -u"
-
 node {
     podTemplate(
         label: "podman-jenkins-bug-pod",
-        containers: [
-            containerTemplate(
-                name: "podman-jenkins-bug-container", 
-                image: "labaneilers/podman-jenkins-bug:3", // Image built from build.dockerfile
-                ttyEnabled: true,
-                privileged: false,
-                command: "tail",
-                args: "-f /dev/null"
-            )]
-    ) {
+        yaml: """apiVersion: v1
+kind: Pod
+metadata:
+  generateName: podman-jenkins-bug-pod-
+  labels: 
+    name: podman-jenkins-bug-pod
+    label: podman-jenkins-bug-pod
+spec:
+  containers:
+  - name: podman-jenkins-bug-container
+    image: labaneilers/podman-jenkins-bug:12
+    tty: true
+    command: [ "tail" ]
+    args: [ "-f", "/dev/null" ]
+    securityContext:
+      runAsUser: 130456
+      allowPrivilegeEscalation: false
+""") {
         node("podman-jenkins-bug-pod") {
             container ("podman-jenkins-bug-container") {
                 stage("checkout") {
