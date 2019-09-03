@@ -24,7 +24,7 @@ node {
                         echo "CAP_SETGID: \$CAP_SETGID"
 
                         whoami
-                        docker info
+                        podman info
 
                         echo "subuid:"
                         cat /etc/subuid
