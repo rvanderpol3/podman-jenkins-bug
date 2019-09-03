@@ -4,7 +4,7 @@ node {
         containers: [
             containerTemplate(
                 name: "podman-jenkins-bug-container", 
-                image: "labaneilers/podman-jenkins-bug:0", // Image built from build.dockerfile
+                image: "labaneilers/podman-jenkins-bug:1", // Image built from build.dockerfile
                 ttyEnabled: true,
                 privileged: false,
                 command: "tail",

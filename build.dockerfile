@@ -10,7 +10,7 @@ RUN yum install -y which
 
 # Install oc and kubectl
 RUN mkdir -p /install
-RUN curl https://mirror.openshift.com/pub/openshift-v4/clients/ocp/latest/openshift-client-linux-4.1.11.tar.gz -o /install/openshift-client.tar.gz
+RUN curl https://mirror.openshift.com/pub/openshift-v4/clients/ocp/latest/openshift-client-linux-4.1.13.tar.gz -o /install/openshift-client.tar.gz
 RUN tar xvfz /install/openshift-client.tar.gz -C /usr/local/bin
 
 # Install docker shim
