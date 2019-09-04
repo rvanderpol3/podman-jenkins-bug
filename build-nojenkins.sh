@@ -1,6 +1,6 @@
 set -e
 
-export IMAGE_VERSION="19"
+export IMAGE_VERSION="23"
 export IMAGE_TAG="labaneilers/podman-bug:$IMAGE_VERSION"
 
 docker build --build-arg TAG="$IMAGE_TAG" -t "$IMAGE_TAG" -f build.nojenkins.dockerfile .

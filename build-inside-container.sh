@@ -3,11 +3,8 @@
 echo "CAP_SETUID: \$CAP_SETUID"
 echo "CAP_SETGID: \$CAP_SETGID"
 
-echo "uid:"
-id -u
-
-echo "gid:"
-id -g
+echo "id:"
+id
 
 echo "username:"
 whoami
@@ -21,9 +18,11 @@ cat /etc/subuid
 echo "subgid:" 
 cat /etc/subgid
 
-echo "password:"
-cat /etc/passwd
+# echo "password:"
+# cat /etc/passwd
 
 podman build .
+
+echo "podman exit code: $?"
 
 tail -f /dev/null

@@ -10,5 +10,6 @@ spec:
     command: [ "bash" ]
     args: [ "-c", "./build-inside-container.sh" ]
     securityContext:
+      privileged: true
       runAsUser: 1000470000
-      allowPrivilegeEscalation: false
+    #   allowPrivilegeEscalation: false

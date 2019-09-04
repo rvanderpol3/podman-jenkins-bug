@@ -11,10 +11,12 @@ metadata:
 spec:
   containers:
   - name: podman-jenkins-bug-container
-    image: labaneilers/podman-jenkins-bug:13
+    image: labaneilers/podman-jenkins-bug:25
     tty: true
     command: [ "tail" ]
     args: [ "-f", "/dev/null" ]
+    securityContext:
+      privileged: true
 """) {
         node("podman-jenkins-bug-pod") {
             container ("podman-jenkins-bug-container") {

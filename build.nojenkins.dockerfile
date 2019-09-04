@@ -18,8 +18,8 @@ COPY docker /usr/bin/docker
 RUN chmod +x /usr/bin/docker
 
 # Add user namespace mappings so podman can run rootless
-RUN echo "jenkins:1000470000:9999" | tee /etc/subuid
-RUN echo "jenkins:1000470000:9999" | tee /etc/subgid
+RUN echo "jenkins:10000:65536" | tee /etc/subuid
+RUN echo "jenkins:10000:65536" | tee /etc/subgid
 
 # Ensure files can be read/written by the jenkins (runtime) user
 RUN chgrp -R 0 /etc/subuid && chmod g=u /etc/subuid
@@ -57,6 +57,8 @@ WORKDIR /build
 COPY Dockerfile .
 COPY build-inside-container.sh .
 RUN chmod +x build-inside-container.sh
+
+USER 1000
 
 # Store the tag/version for this container for debugging
 ARG TAG
