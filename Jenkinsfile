@@ -11,7 +11,7 @@ metadata:
 spec:
   containers:
   - name: podman-jenkins-bug-container
-    image: labaneilers/podman-jenkins-bug:12
+    image: labaneilers/podman-jenkins-bug:13
     tty: true
     command: [ "tail" ]
     args: [ "-f", "/dev/null" ]

@@ -4,5 +4,9 @@ metadata:
   name: podman-bug
 spec:
   containers:
-  - name: podman-bug
+  - name: podman-bug-container
     image: ${IMAGE_TAG}
+    tty: true
+    securityContext:
+      runAsUser: 1000470000
+      allowPrivilegeEscalation: false

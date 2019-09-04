@@ -1,4 +1,4 @@
-export IMAGE_VERSION="12"
+export IMAGE_VERSION="13"
 
 export IMAGE_TAG="labaneilers/podman-jenkins-bug:$IMAGE_VERSION"
 
