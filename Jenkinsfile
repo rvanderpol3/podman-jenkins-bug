@@ -15,9 +15,6 @@ spec:
     tty: true
     command: [ "tail" ]
     args: [ "-f", "/dev/null" ]
-    securityContext:
-      runAsUser: 130456
-      allowPrivilegeEscalation: false
 """) {
         node("podman-jenkins-bug-pod") {
             container ("podman-jenkins-bug-container") {
