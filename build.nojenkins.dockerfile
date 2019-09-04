@@ -33,7 +33,7 @@ RUN chmod -R 777 /home
 COPY registries.conf /etc/containers/registries.conf
 RUN chgrp -R 0 /etc/containers/registries.conf && chmod g=u /etc/containers/registries.conf
 
-# Create an init directory
+# Create an init file to write to /etc/passwd
 COPY init.sh /init.sh
 RUN chmod 777 /init.sh
 
@@ -51,15 +51,12 @@ RUN mkdir -p /.local
 RUN chgrp -R 0 /.local
 RUN chmod 777 /.local
 
+# Copy sample docker file and podman build script to test building
+# in this container.
 WORKDIR /build
 COPY Dockerfile .
 COPY build-inside-container.sh .
 RUN chmod +x build-inside-container.sh
-
-CMD [ "bash", "-c", "./build-inside-container.sh" ]
-
-# Set to a random high number
-USER 1000470000
 
 # Store the tag/version for this container for debugging
 ARG TAG

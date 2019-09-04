@@ -7,6 +7,8 @@ spec:
   - name: podman-bug-container
     image: ${IMAGE_TAG}
     tty: true
+    command: [ "bash" ]
+    args: [ "-c", "./build-inside-container.sh" ]
     securityContext:
       runAsUser: 1000470000
       allowPrivilegeEscalation: false

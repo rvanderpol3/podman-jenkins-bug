@@ -25,10 +25,8 @@ spec:
                     sh """
                         /init.sh
 
-                        echo "CAP_SETUID: \$CAP_SETUID"
-                        echo "CAP_SETGID: \$CAP_SETGID"
-
                         whoami
+                        id -u
                         podman info
 
                         echo "subuid:"
