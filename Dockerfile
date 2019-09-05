@@ -8,5 +8,5 @@ FROM registry.access.redhat.com/dotnet/dotnet-22-rhel7:2.2-8
 #RUN chmod +x some-app.sh
 
 USER default
-
+RUN ls
 ENTRYPOINT [ "bash", "-c", "some-app.sh" ]
