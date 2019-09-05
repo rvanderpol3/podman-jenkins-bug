@@ -18,8 +18,8 @@ COPY docker /usr/bin/docker
 RUN chmod +x /usr/bin/docker
 
 # Add user namespace mappings so podman can run rootless
-RUN echo "jenkins:10000:65536" | tee /etc/subuid
-RUN echo "jenkins:10000:65536" | tee /etc/subgid
+RUN echo "jenkins:1000:65536" | tee /etc/subuid
+RUN echo "jenkins:1000:65536" | tee /etc/subgid
 
 # Ensure files can be read/written by the jenkins (runtime) user
 RUN chgrp -R 0 /etc/subuid && chmod g=u /etc/subuid
