@@ -1,0 +1,28 @@
+kind: BuildConfig
+metadata:
+  annotations:
+    openshift.io/generated-by: OpenShiftNewBuild
+  labels:
+    build: myapp-build
+  name: myapp-build
+  namespace: pipelineproject
+spec:
+  failedBuildsHistoryLimit: 5
+  nodeSelector: null
+  output:
+    to:
+      kind: ImageStreamTag
+      name: myapp-build:latest
+  postCommit: {}
+  resources: {}
+  runPolicy: Serial
+  source:
+    binary: {}
+    type: Binary
+  strategy:
+    dockerStrategy:
+      from:
+        kind: ImageStreamTag
+        name: dotnet-22-rhel7:2.2-8
+    type: Docker
+  successfulBuildsHistoryLimit: 5
