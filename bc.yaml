@@ -5,7 +5,7 @@ metadata:
   labels:
     build: myapp-build
   name: myapp-build
-  namespace: default
+  namespace: pipelineproject
 spec:
   failedBuildsHistoryLimit: 5
   nodeSelector: null
